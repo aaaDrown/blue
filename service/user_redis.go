@@ -10,6 +10,19 @@ import (
 	"time"
 )
 
+func DeleteUserInfoByUserIDFromCache(userID int64) error {
+	// Define key
+	userRedis := fmt.Sprintf(entity.UserDataPattern, userID)
+
+	if result := global.REDIS.Exists(global.CONTEXT, userRedis).Val(); result <= 0 {
+		return errors.New("not found in cache")
+	}
+
+	// Delete key from Redis
+	_, err := global.REDIS.Del(global.CONTEXT, userRedis).Result()
+	return err
+}
+
 func GetUserInfoByUserIDFromRedis(userID int64) (*entity.UserData, error) {
 	// 定义 key
 	userRedis := fmt.Sprintf(entity.UserDataPattern, userID)

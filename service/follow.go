@@ -60,6 +60,8 @@ func DoOrCancelFollow(currentId int64, userId int64, actionType int32) (err erro
 			return err
 		}
 	}
+	DeleteUserInfoByUserIDFromCache(userId)
+	DeleteUserInfoByUserIDFromCache(currentId)
 	return
 }
 
