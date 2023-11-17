@@ -1,5 +1,8 @@
 # blue
 
+安卓端代码
+https://gitee.com/ooyes_zn/blue_-app/tree/zn
+
 #### 介绍
 二手交易平台，可以实现商品图片浏览，聊天社交，生活分享，交易等多种功能
 
