@@ -19,7 +19,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
-    container_name: blue
     depends_on:
       - mysql
       - redis
