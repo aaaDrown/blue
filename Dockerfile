@@ -8,6 +8,7 @@ WORKDIR /blue
 COPY . .
 
 # 下载项目所需的依赖
+RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN go mod tidy
 
 # 暴露应用运行的端口
