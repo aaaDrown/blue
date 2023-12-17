@@ -8,13 +8,10 @@ WORKDIR /blue
 COPY . .
 
 # 下载项目所需的依赖
-RUN go mod download
-
-# 构建应用
-RUN go build -o main .
+RUN go mod tidy
 
 # 暴露应用运行的端口
 EXPOSE 8080
 
 # 定义容器启动时运行的命令
-CMD ["./main"]
+CMD ["go run *.go &"]
