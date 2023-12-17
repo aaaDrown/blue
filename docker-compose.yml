@@ -2,16 +2,25 @@ version: '3'
 services:
   mysql:
     image: mysql:latest
+    ports:
+      - 3306:3306
+    volumes:
+      -"./blue.sql:/docker-entrypoint-initdb.d/1_blue.sql"
     environment:
       TZ: Asia/Shanghai
-      MYSQL_ROOT_PASSWORD: 166232gsh
+      MYSQL_ROOT_PASSWORD: 123456
       MYSQL_DATABASE: blue
       MYSQL_USER: root
-      MYSQL_PASSWORD: 166232gsh
+      MYSQL_PASSWORD: 123456
     
 
   redis:
     image: redis:latest
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis.conf:/etc/redis/redis.conf
+    command: "redis-server /etc/redis/redis.conf"
 
   blue:
     build: 
