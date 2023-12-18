@@ -10,7 +10,7 @@ COPY . .
 # 下载项目所需的依赖
 RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN go mod tidy
-RUN go build -o blue *.go
+RUN go build -o blue main.go router.go
 
 # 暴露应用运行的端口
 EXPOSE 8080
