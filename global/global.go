@@ -2,15 +2,16 @@ package global
 
 import (
 	"context"
+	"time"
+
 	"github.com/go-redis/redis/v8"
 	"gorm.io/gorm"
-	"time"
 )
 
 var ( // 全局变量
 	DB                  *gorm.DB      // 数据库接口
 	REDIS               *redis.Client // Redis 缓存接口
-	RedisHost           = "localhost"
+	RedisHost           = "redis"
 	RedisPort           = 6379
 	RedisUserName       = "root"
 	RedisPwd            = "foobared"
